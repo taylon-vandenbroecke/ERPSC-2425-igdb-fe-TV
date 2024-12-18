@@ -5,7 +5,7 @@ GET http://localhost:4004/odata/v4/game/Game?$top=10
 GET http://localhost:4004/odata/v4/game/Student
 
 ### Get a student with their favorite games
-GET http://localhost:4004/odata/v4/game/Student(1)?$expand=to_favos($expand=to_game)
+GET http://localhost:4004/odata/v4/game/Student(af7c1fe6-d669-414e-b066-e9733f0de7a8)?$expand=to_favos($expand=to_game)
 
 ### Create a new student
 POST http://localhost:4004/odata/v4/game/Student
@@ -22,11 +22,11 @@ Content-Type: application/json
 
 {
   "Game_ID": 1,
-  "Student_ID": 2
+  "Student_ID": "af7c1fe6-d669-414e-b066-e9733f0de7a8"
 }
 
 ### Update a student with their favorite games
-PATCH http://localhost:4004/odata/v4/game/Student(1)
+PATCH http://localhost:4004/odata/v4/game/Student(af7c1fe6-d669-414e-b066-e9733f0de7a8)
 Content-Type: application/json
 
 {
@@ -35,11 +35,11 @@ Content-Type: application/json
   "to_favos": [
     {
       "Game_ID": 1,
-      "Student_ID": 1
+      "Student_ID": "af7c1fe6-d669-414e-b066-e9733f0de7a8"
     },
     {
       "Game_ID": 2,
-      "Student_ID": 1
+      "Student_ID": "af7c1fe6-d669-414e-b066-e9733f0de7a8"
     }
   ]
 }
