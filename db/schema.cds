@@ -21,7 +21,7 @@ entity Student {
 
 entity FavoriteGame {
   key Game_ID    : Integer;
-  key Student_ID : Integer;
+  key Student_ID : UUID;
       to_game    : Association to Game
                      on to_game.Game_ID = $self.Game_ID;
 }

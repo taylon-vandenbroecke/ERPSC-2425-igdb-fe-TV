@@ -4,11 +4,6 @@ annotate service.Student with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Label : 'Student_ID',
-            Value : Student_ID,
-        },
-        {
-            $Type : 'UI.DataField',
             Label : 'First_name',
             Value : First_name,
         },
@@ -16,6 +11,11 @@ annotate service.Student with @(
             $Type : 'UI.DataField',
             Label : 'Last_name',
             Value : Last_name,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Student_ID',
+            Value : Student_ID,
         },
     ],
     UI.Identification : [
@@ -26,6 +26,14 @@ annotate service.Student with @(
             Label : 'Back',
         },
     ],
+    UI.Facets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Back',
+            ID : 'BackNavigation',
+            Target : '@UI.Identification'
+        }
+    ]
 );
 annotate service.Student with @(
     UI.FieldGroup #GeneratedGroup1 : {
@@ -111,6 +119,45 @@ annotate service.FavoriteGame with @(
             Label : 'Release_date',
         },
     ],
+    UI.Facets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Game search',
+            ID : 'Gamesearch',
+            Target : '@UI.FieldGroup#Gamesearch',
+        },
+    ],
+    UI.FieldGroup #Gamesearch : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : to_game.Name,
+                Label : 'Name',
+                Criticality : Game_ID,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : to_game.Cover_url,
+                Label : 'Cover_url',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : to_game.Platform,
+                Label : 'Platform',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : to_game.Publisher,
+                Label : 'Publisher',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : to_game.Release_date,
+                Label : 'Release_date',
+            },
+        ],
+    },
 );
 
 annotate service.Game with {
