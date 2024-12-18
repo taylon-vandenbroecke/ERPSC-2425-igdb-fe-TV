@@ -2,7 +2,7 @@
   "name": "cap-igdb",
   "version": "1.0.0",
   "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
+  "repository": "https://github.com/taylon-vandenbroecke/cap-igdb",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
@@ -15,5 +15,9 @@
   },
   "scripts": {
     "start": "cds-serve"
-  }
+  },
+  "sapux": [
+    "app/app",
+    "app/app"
+  ]
 }
