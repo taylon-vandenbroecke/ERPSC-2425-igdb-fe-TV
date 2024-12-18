@@ -126,6 +126,19 @@ annotate service.FavoriteGame with @(
             ID : 'Gamesearch',
             Target : '@UI.FieldGroup#Gamesearch',
         },
+        {
+            $Type : 'UI.CollectionFacet',
+            Label : 'Description',
+            ID : 'Description',
+            Facets : [
+                {
+                    $Type : 'UI.ReferenceFacet',
+                    Label : 'Description',
+                    ID : 'Description1',
+                    Target : '@UI.FieldGroup#Description',
+                },
+            ],
+        },
     ],
     UI.FieldGroup #Gamesearch : {
         $Type : 'UI.FieldGroupType',
@@ -134,7 +147,6 @@ annotate service.FavoriteGame with @(
                 $Type : 'UI.DataField',
                 Value : to_game.Name,
                 Label : 'Name',
-                Criticality : Game_ID,
             },
             {
                 $Type : 'UI.DataField',
@@ -156,7 +168,31 @@ annotate service.FavoriteGame with @(
                 Value : to_game.Release_date,
                 Label : 'Release_date',
             },
+            {
+                $Type : 'UI.DataField',
+                Value : to_game.Genre,
+                Label : 'Genre',
+            },
         ],
+    },
+    UI.UpdateHidden : true,
+    UI.FieldGroup #Description : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : to_game.Description,
+                Label : 'Description',
+            },
+        ],
+    },
+    UI.HeaderInfo : {
+        Title : {
+            $Type : 'UI.DataField',
+            Value : to_game.Name,
+        },
+        TypeName : '',
+        TypeNamePlural : '',
     },
 );
 
